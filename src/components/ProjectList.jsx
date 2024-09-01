@@ -55,8 +55,8 @@ function ProjectList() {
     };
 
     return (
-        <div>
-            <div className="flex justify-between items-center mb-6">
+        <div className='flex justify-center flex-col items-center'>
+            <div className="flex w-[80vw] justify-between items-center mb-6">
                 <input
                     type="text"
                     placeholder="Search projects..."
@@ -64,14 +64,14 @@ function ProjectList() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <Link to="/add-project" className="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-md shadow-sm hover:bg-indigo-700">
+                <Link to="/add-project" className="ml-4 bg-indigo-600 text-white p-2 rounded-md shadow-sm hover:bg-indigo-700">
                     Add Project
                 </Link>
             </div>
             <div className="overflow-x-auto">
-                <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                <table className="min-w-full bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
                     <thead>
-                        <tr className="bg-gray-100 text-left text-gray-600">
+                        <tr className="bg-gray-200 text-left text-gray-600">
                             <th className="px-6 py-3">Project Name</th>
                             <th className="px-6 py-3">Description</th>
                             <th className="px-6 py-3">Status</th>
@@ -82,7 +82,7 @@ function ProjectList() {
                     </thead>
                     <tbody className="text-gray-600">
                         {filteredProjects.map((project) => (
-                            <tr key={project.id} className="border-b" onClick={() => handleProjectClick(project)}>
+                            <tr key={project.id} className="border-b cursor-pointer" onClick={() => handleProjectClick(project)}>
                                 <td className="px-6 py-4">{project.projectName}</td>
                                 <td className="px-6 py-4">{project.description}</td>
                                 <td className="px-6 py-4">{project.status}</td>
